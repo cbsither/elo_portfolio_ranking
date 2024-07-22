@@ -2,16 +2,17 @@ import math
 
 class Elo_Player:
 
-    def __init__(self, rating = 1500):
+    def __init__(self, rating = 1500, scalar=400):
         # For testing purposes, preload the values
         # assigned to an unrated player.
         self.__rating = rating
+        self.__scalar = scalar
 
     def elo_rating(self, Rb):
-        return 1 / (1 + 10 ** ((Rb - self.__rating) / 400))
+        return 1 / (1 + 10 ** ((Rb - self.__rating) / self.__scalar))
 
     def Q_(self, R):
-        return 10 ** (R / 400)
+        return 10 ** (R / self.__scalar)
 
     def E_(self, Qa, Qb):
         return self.Q_(Qa) / (self.Q_(Qa) + self.Q_(Qb))
