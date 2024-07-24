@@ -9,9 +9,9 @@ class Evaluation:
         if s1 > s2:
             return 1
         elif s1 == s2:
-            return 0
+            return 0.5
         elif s1 < s2:
-            return -1
+            return 0
 
     def overlap(self, min1, max1, min2, max2):
         start = max(min1, min2)
@@ -38,8 +38,8 @@ class Evaluation:
                              min2=s2_range[1], max2=s2_range[0])
 
         if d > decision:
-            return 0
+            return 0.5
         elif s1_range[0] > s2_range[0]:
             return 1
         elif s1_range[0] < s2_range[0]:
-            return -1
+            return 0
