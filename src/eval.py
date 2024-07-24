@@ -4,6 +4,7 @@ class Evaluation:
     def __init__(self):
         pass
 
+    @classmethod
     def above_below_equal(self, s1: float, s2: float):
         if s1 > s2:
             return 1
@@ -27,6 +28,7 @@ class Evaluation:
         else:
             return d / (max1 - min1)
 
+    @classmethod
     def above_below_equal_bid_ask(self, s1: float, s2: float, bid_ask_s1: float, bid_ask_s2: float, decision: float):
 
         s1_range = [s1 + bid_ask_s1, s1 - bid_ask_s1]
